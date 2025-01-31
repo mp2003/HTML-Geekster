@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Dev Tools</title>
+    <script>
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert('Kuu dekhna h code teko marks de chup chap !!');
+        });
+
+        document.addEventListener('keydown', function(e) {
+            // Detect F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U (Windows/Linux)
+            // Detect Cmd+Option+I, Cmd+Option+J, Cmd+Option+U (macOS)
+            if (
+                e.keyCode === 123 || // F12
+                (e.ctrlKey && e.shiftKey && e.keyCode === 73) || // Ctrl+Shift+I
+                (e.ctrlKey && e.shiftKey && e.keyCode === 74) || // Ctrl+Shift+J
+                (e.ctrlKey && e.keyCode === 85) || // Ctrl+U
+                (e.metaKey && e.altKey && e.keyCode === 73) || // Cmd+Option+I
+                (e.metaKey && e.altKey && e.keyCode === 74) || // Cmd+Option+J
+                (e.metaKey && e.altKey && e.keyCode === 85)    // Cmd+Option+U
+            ) {
+                e.preventDefault();
+                alert('Kuu dekhna h code tereko ');
+            }
+        });
+
+        // Detect if dev tools are open by checking the window size
+        function detectDevTools() {
+            const devToolsOpened = () => {
+                const widthThreshold = window.outerWidth - window.innerWidth > 160;
+                const heightThreshold = window.outerHeight - window.innerHeight > 160;
+                return widthThreshold || heightThreshold;
+            };
+
+            if (devToolsOpened()) {
+                alert('Dev tools are disabled!');
+                window.location.reload(); // Reload the page or take other actions
+            }
+        }
+
+        setInterval(detectDevTools, 1000); // Check every second
+    </script>
+</head>
+<body>
+    <h1>Dev Tools are Disabled</h1>
+    <p>Try opening dev tools using shortcuts or right-clicking.</p>
+</body>
+</html>
