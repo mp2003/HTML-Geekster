@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="p-4 bg-gray-100 flex justify-center items-center min-h-screen">
+    <div
+      class="max-w-7xl mx-auto border border-slate-300 rounded-lg shadow-md shadow-gray-200 bg-white p-6"
+    >
+      <div class="flex flex-col md:flex-row gap-8">
+        <!-- Image Section -->
+        <div class="flex justify-end">
+          <img
+            src="./Asset/domino-studio-164_6wVEHfI-unsplash.jpg"
+            alt="Classic Utility Jacket worn by person"
+            class="rounded-lg object-cover w-80"
+          />
+        </div>
+
+        <!-- Product Details Section -->
+        <div class="md:w-1/2 flex flex-col gap-3 justify-center py-8">
+          <div class="flex justify-between items-start">
+            <h1 class="text-2xl font-semibold text-gray-900">
+              Classic Utility Jacket
+            </h1>
+            <span class="text-xl text-gray-400 font-bold">$110.00</span>
+          </div>
+
+          <span class="text-gray-600">In stock</span>
+
+          <!-- Size Selection -->
+          <div class="flex gap-4 mb-4">
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-lg text-sm bg-gray-900 text-white border border-gray-200"
+            >
+              XS
+            </button>
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-lg text-sm bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              S
+            </button>
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-lg text-sm bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              M
+            </button>
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-lg text-sm bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              L
+            </button>
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-lg text-sm bg-white text-gray-600 hover:bg-gray-100 border border-gray-200"
+            >
+              XL
+            </button>
+          </div>
+
+          <hr class="border-t border-gray-300" />
+
+          <!-- Action Buttons -->
+          <div class="flex gap-4 mt-4">
+            <button
+              class="px-8 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 flex-grow"
+            >
+              Buy now
+            </button>
+            <button
+              class="px-8 py-3 bg-white text-gray-900 rounded-lg font-medium border border-gray-200 hover:bg-gray-50 flex-grow"
+            >
+              Add to bag
+            </button>
+            <button
+              class="p-3 border border-gray-200 rounded-lg hover:bg-gray-50"
+            >
+              <i class="far fa-heart text-gray-400 text-xl"></i>
+            </button>
+          </div>
+
+          <!-- Shipping Info -->
+          <p class="text-gray-600 mt-4">
+            Free shipping on all continental US orders.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
