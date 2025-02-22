@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark Mode Toggle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="flex items-center justify-center flex-col min-h-screen transition-all duration-500 bg-black text-white"
+    id="body"
+  >
+    <button
+      id="btn"
+      class="relative w-32 h-16 bg-gray-300 rounded-full p-2 transition-all duration-500 overflow-hidden bg-black"
+    >
+      <!-- Sun Icon (Hidden by Default) -->
+      <img
+        src="../assests/sun-svgrepo-com.png"
+        alt="Sun Icon"
+        class="absolute left-3 top-2 h-12 w-12 transition-all duration-500 opacity-0"
+        id="sunIcon"
+      />
+
+      <!-- Moon Icon (Visible by Default) -->
+      <img
+        src="../assests/4445942.png"
+        alt="Moon Icon"
+        class="absolute right-3 top-2 h-12 w-12 transition-all duration-500 opacity-100"
+        id="moonIcon"
+      />
+
+      <!-- Slider (Starts on the Right) -->
+      <div
+        class="absolute left-[6px] top-1 w-14 h-14 bg-white rounded-full shadow-md flex items-center justify-center transform transition-all duration-500 z-10"
+        id="slider"
+      ></div>
+    </button>
+
+    <h1
+      class="text-4xl mt-10 font-bold capitalize text-center transition-all duration-500"
+      id="text"
+    >
+      Dark Mode is On
+    </h1>
+
+    <script>
+      const btn = document.getElementById("btn");
+      const slider = document.getElementById("slider");
+      const sunIcon = document.getElementById("sunIcon");
+      const moonIcon = document.getElementById("moonIcon");
+      const body = document.getElementById("body");
+      const text = document.getElementById("text");
+
+      btn.addEventListener("click", () => {
+        // Toggle slider movement
+        slider.classList.toggle("translate-x-[60px]");
+
+        // Toggle icons visibility
+        sunIcon.classList.toggle("opacity-100");
+        sunIcon.classList.toggle("opacity-0");
+
+        moonIcon.classList.toggle("opacity-100");
+        moonIcon.classList.toggle("opacity-0");
+
+        // Toggle dark mode for the body
+        body.classList.toggle("bg-black");
+        body.classList.toggle("text-white");
+        body.classList.toggle("bg-white");
+        body.classList.toggle("text-black");
+
+        // Change text
+        text.textContent = body.classList.contains("bg-black")
+          ? "Dark Mode is On"
+          : "Light Mode is On";
+      });
+    </script>
+  </body>
+</html>
