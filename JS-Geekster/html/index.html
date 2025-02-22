@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Age Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="../js/date.js" defer></script>
+  </head>
+  <body class="bg-slate-200 min-h-screen flex items-center justify-center">
+    <div
+      class="bg-white/30 backdrop-blur-lg shadow-lg p-8 rounded-xl w-full max-w-md text-center border border-white/20"
+    >
+      <h1 class="text-3xl font-bold mb-4">Age Calculator</h1>
+
+      <label for="date" class="block text-lg font-semibold mb-2">
+        Enter your date of birth:
+      </label>
+
+      <input
+        type="date"
+        id="date"
+        name="date"
+        class="mt-2 w-full p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-white/70 bg-white/50 text-gray-900 font-semibold"
+        style="font-family: 'Roboto', sans-serif"
+      />
+
+      <button
+        class="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out"
+        onclick="calculateAge()"
+        id="button"
+      >
+        Calculate Age
+      </button>
+
+      <p class="text-xl font-bold text-black mt-6">
+        Your age is <span id="age-result" class="text-red-600">—</span> years
+        old
+      </p>
+    </div>
+
+   
+  </body>
+</html>
