@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+    <style>
+        #myDiv {
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="myDiv">Hello, this is a styled div!</div>
+
+    <script>
+        // Fetch the div element
+        let myDiv = document.getElementById("myDiv");
+
+        // Apply styles
+        myDiv.style.backgroundColor = "yellow";
+        myDiv.style.margin = "20px";
+        myDiv.style.padding = "10px";
+        myDiv.style.fontSize = "18px";
+        myDiv.style.fontWeight = "bold";
+        myDiv.style.height = "200px";
+        myDiv.style.width = "300px";
+    </script>
+
+</body>
+</html>
