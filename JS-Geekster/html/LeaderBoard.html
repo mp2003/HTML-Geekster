@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Star Wars Leaderboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+      body,
+      html {
+        font-family: "Orbitron", sans-serif;
+        overflow-x: hidden;
+        background-color: #000;
+      }
+
+      .star {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        background: white;
+        z-index: 0;
+      }
+
+      .spaceship {
+        position: absolute;
+        width: 60px;
+        height: 30px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 30' fill='%23ccc'%3E%3Cpath d='M10,15 L30,5 L50,15 L30,25 Z'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 1;
+        filter: drop-shadow(0 0 5px rgba(0, 195, 255, 0.8));
+      }
+
+      .laser {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          rgba(255, 0, 0, 0) 0%,
+          rgba(255, 0, 0, 1) 50%,
+          rgba(255, 0, 0, 0) 100%
+        );
+        z-index: 2;
+      }
+
+      .enemy {
+        position: absolute;
+        width: 40px;
+        height: 20px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20' fill='%23f00'%3E%3Cpath d='M5,10 L20,0 L35,10 L20,20 Z'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 1;
+        filter: drop-shadow(0 0 5px rgba(255, 0, 0, 0.8));
+      }
+
+      .glow-text {
+        text-shadow: 0 0 10px rgba(0, 195, 255, 0.8),
+          0 0 20px rgba(0, 195, 255, 0.5), 0 0 30px rgba(0, 195, 255, 0.3);
+      }
+
+      .sw-border {
+        border: 2px solid rgba(0, 195, 255, 0.5);
+        box-shadow: 0 0 10px rgba(0, 195, 255, 0.5),
+          inset 0 0 10px rgba(0, 195, 255, 0.3);
+      }
+
+      .container {
+        backdrop-filter: blur(4px);
+        background-color: rgba(0, 30, 60, 0.3);
+      }
+
+      input,
+      select,
+      button {
+        background-color: rgba(0, 30, 60, 0.6) !important;
+        color: #0cf !important;
+        border: 1px solid rgba(0, 195, 255, 0.5) !important;
+        box-shadow: 0 0 5px rgba(0, 195, 255, 0.5),
+          inset 0 0 5px rgba(0, 195, 255, 0.2) !important;
+      }
+
+      input:focus,
+      select:focus {
+        box-shadow: 0 0 15px rgba(0, 195, 255, 0.8),
+          inset 0 0 10px rgba(0, 195, 255, 0.4) !important;
+        border: 1px solid rgba(0, 195, 255, 0.8) !important;
+      }
+
+      button:hover {
+        box-shadow: 0 0 20px rgba(0, 195, 255, 0.8),
+          inset 0 0 15px rgba(0, 195, 255, 0.4) !important;
+        text-shadow: 0 0 10px rgba(0, 195, 255, 1);
+      }
+
+      ::placeholder {
+        color: rgba(0, 195, 255, 0.6) !important;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen py-8 px-4 relative overflow-hidden">
+    <!-- Background with stars -->
+    <div id="stars-container"></div>
+
+    <!-- Main content -->
+    <div class="relative z-10 max-w-4xl mx-auto">
+      <!-- Title with Star Wars style -->
+      <h1
+        class="text-5xl md:text-6xl font-bold text-center text-blue-300 glow-text mb-8 animate__animated animate__fadeIn"
+      >
+        <span
+          class="inline-block animate__animated animate__pulse animate__infinite animate__slow"
+          >🌠</span
+        >
+        GALACTIC LEADERBOARD
+        <span
+          class="inline-block animate__animated animate__pulse animate__infinite animate__slow"
+          >🌠</span
+        >
+      </h1>
+
+      <!-- Form with sci-fi styling -->
+      <form
+        action=""
+        class="sw-border rounded-lg p-6 mb-8 animate__animated animate__fadeInUp container"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <input
+            type="text"
+            class="fname rounded-md px-4 py-3 text-lg focus:outline-none transition-all duration-300"
+            placeholder="First Name"
+          />
+
+          <input
+            type="text"
+            class="lname rounded-md px-4 py-3 text-lg focus:outline-none transition-all duration-300"
+            placeholder="Last Name"
+          />
+
+          <select
+            name=""
+            class="country rounded-md px-4 py-3 text-lg focus:outline-none transition-all duration-300"
+          >
+            <option value="" selected>Select zone</option>
+            <option value="India">IND</option>
+            <option value="Austrilia">AUS</option>
+            <option value="USA">USA</option>
+            <option value="Pakistan">PAK</option>
+            <option value="China">CHI</option>
+            <option value="Canada">CAN</option>
+          </select>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <input
+            type="number"
+            class="score rounded-md px-4 py-3 text-lg focus:outline-none transition-all duration-300"
+            placeholder="Battle Points"
+          />
+
+          <button
+            class="rounded-md px-4 py-3 text-lg text-blue-300 font-bold transform hover:-translate-y-1 hover:scale-105 transition-all duration-300"
+          >
+            LOG BATTLE SCORE
+          </button>
+        </div>
+      </form>
+
+      <!-- Leaderboard container -->
+      <div
+        class="container sw-border rounded-lg p-6 max-h-96 overflow-auto hidden"
+        id="leaderboard-container"
+      >
+        <!-- Leaderboard entries will go here -->
+      </div>
+    </div>
+
+    <script>
+      // Create stars background
+      function createStars() {
+        const starsContainer = document.getElementById("stars-container");
+        const starsCount = 200;
+
+        for (let i = 0; i < starsCount; i++) {
+          const star = document.createElement("div");
+          star.className = "star";
+          star.style.left = `${Math.random() * 100}vw`;
+          star.style.top = `${Math.random() * 100}vh`;
+          star.style.width = `${Math.random() * 3}px`;
+          star.style.height = star.style.width;
+          star.style.opacity = Math.random();
+          star.style.animationDelay = `${Math.random() * 10}s`;
+          starsContainer.appendChild(star);
+        }
+      }
+
+      // Create space battle animation
+      function createSpaceBattle() {
+        const body = document.body;
+
+        // Create fighter jets and battle animations
+        setInterval(() => {
+          // Create friendly spaceship
+          const spaceship = document.createElement("div");
+          spaceship.className = "spaceship";
+          const spaceshipTop = Math.random() * window.innerHeight;
+          spaceship.style.top = `${spaceshipTop}px`;
+          spaceship.style.left = `-60px`;
+          body.appendChild(spaceship);
+
+          // Animate spaceship
+          const spaceshipSpeed = 3 + Math.random() * 2;
+          const spaceshipInterval = setInterval(() => {
+            const currentLeft = parseInt(spaceship.style.left);
+            spaceship.style.left = `${currentLeft + spaceshipSpeed}px`;
+
+            // Fire lasers occasionally
+            if (Math.random() < 0.05) {
+              const laser = document.createElement("div");
+              laser.className = "laser";
+              laser.style.top = `${parseInt(spaceship.style.top) + 15}px`;
+              laser.style.left = `${currentLeft + 60}px`;
+              laser.style.width = "0px";
+              body.appendChild(laser);
+
+              // Animate laser
+              const laserInterval = setInterval(() => {
+                const currentLaserWidth = parseInt(laser.style.width) || 0;
+                laser.style.width = `${currentLaserWidth + 10}px`;
+                if (currentLaserWidth > 100) {
+                  clearInterval(laserInterval);
+                  laser.remove();
+                }
+              }, 20);
+            }
+
+            // Remove spaceship when it leaves the screen
+            if (currentLeft > window.innerWidth) {
+              clearInterval(spaceshipInterval);
+              spaceship.remove();
+            }
+          }, 20);
+
+          // Create enemy ship
+          const enemy = document.createElement("div");
+          enemy.className = "enemy";
+          const enemyTop = Math.random() * window.innerHeight;
+          enemy.style.top = `${enemyTop}px`;
+          enemy.style.left = `${window.innerWidth}px`;
+          body.appendChild(enemy);
+
+          // Animate enemy
+          const enemySpeed = 2 + Math.random() * 2;
+          const enemyInterval = setInterval(() => {
+            const currentLeft = parseInt(enemy.style.left);
+            enemy.style.left = `${currentLeft - enemySpeed}px`;
+
+            // Remove enemy when it leaves the screen
+            if (currentLeft < -40) {
+              clearInterval(enemyInterval);
+              enemy.remove();
+            }
+          }, 20);
+        }, 2000);
+      }
+
+      // Make stars twinkle
+      function twinkleStars() {
+        const stars = document.querySelectorAll(".star");
+        stars.forEach((star) => {
+          setInterval(() => {
+            const opacity = parseFloat(star.style.opacity);
+            const newOpacity = Math.random();
+            star.style.opacity = newOpacity;
+          }, 1000 + Math.random() * 5000);
+        });
+      }
+
+      // Initialize animations on page load
+      window.addEventListener("load", () => {
+        createStars();
+        twinkleStars();
+        createSpaceBattle();
+
+        // Show leaderboard when form is submitted
+        const form = document.querySelector("form");
+        const leaderboardContainer = document.getElementById(
+          "leaderboard-container"
+        );
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          leaderboardContainer.classList.remove("hidden");
+          // Your code to add entry to leaderboard
+        });
+      });
+    </script>
+    <script src="../js/leaderBoard.js"></script>
+  </body>
+</html>
