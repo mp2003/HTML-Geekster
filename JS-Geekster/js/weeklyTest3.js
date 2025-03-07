@@ -176,17 +176,14 @@ function renderCart() {
 
   const cartItems = Object.values(cart);
 
-  // Update cart count
   itemsCount.textContent = cartItems.length;
 
-  // Calculate total price
   const total = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
   totalPrice.textContent = total;
 
-  // Render cart items
   cartContainer.innerHTML = cartItems
     .map(
       (item) => `
@@ -251,6 +248,5 @@ function decreaseQuantity(productId) {
   }
 }
 
-// Initialize
 renderProducts();
 renderCart();

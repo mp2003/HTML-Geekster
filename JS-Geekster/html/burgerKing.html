@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Burger King Online Ordering</title>
+    <link rel="stylesheet" href="../css/burgerKingCss.css" />
+    <script src="../js/burgerKingJs.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo">BURGER KING</div>
+    </header>
+    <div class="container" id="menuPage">
+      <div class="menu-section">
+        <h2 class="menu-title">Our Menu</h2>
+        <div class="menu-category">
+          <h3 class="category-title">Flame-Grilled Burgers</h3>
+          <div class="food-items" id="burgerItems"></div>
+        </div>
+        <div class="menu-category">
+          <h3 class="category-title">Sides & Snacks</h3>
+          <div class="food-items" id="sidesItems"></div>
+        </div>
+        <div class="menu-category">
+          <h3 class="category-title">Beverages</h3>
+          <div class="food-items" id="beverageItems"></div>
+        </div>
+      </div>
+      <div class="cart-section">
+        <h2 class="cart-title">Your Order</h2>
+        <div id="cartItems" class="cart-items">
+          <p class="empty-cart-msg">Your cart is empty</p>
+        </div>
+        <div class="cart-summary">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal">$0.00</span>
+          </div>
+          <button class="proceed-btn" id="proceedBtn" disabled>
+            Proceed to Checkout
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="container" id="confirmationPage">
+      <div class="confirmation-page">
+        <div class="order-id" id="orderId">Order #123</div>
+        <h2 class="confirmation-title">Thank You for Your Order!</h2>
+        <p class="confirmation-message">
+          Your delicious food is being prepared...
+        </p>
+        <div class="preparation-animation" id="preparationAnimation">
+          <p class="preparation-message">Preparing your order...</p>
+          <div class="loading-spinner"></div>
+        </div>
+        <div id="orderReady" style="display: none">
+          <div class="order-details">
+            <h3 class="order-details-title">Order Details</h3>
+            <div id="orderItems" class="order-items"></div>
+            <div class="order-summary">
+              <div class="cart-total">
+                <span>Total:</span>
+                <span id="orderTotal">$0.00</span>
+              </div>
+            </div>
+          </div>
+          <div class="order-images" id="orderImages"></div>
+          <button class="back-to-menu" id="backToMenuBtn">
+            Place Another Order
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
