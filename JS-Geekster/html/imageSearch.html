@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Search | Unsplash API</title>
+    <link rel="stylesheet" href="../css/imageSearch.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Unsplash Image Search</h1>
+        <p>Find beautiful, free images for your projects</p>
+      </div>
+
+      <div class="search-container">
+        <input
+          type="text"
+          id="search-input"
+          placeholder="Search for images..."
+        />
+        <button id="search-button"><i class="fas fa-search"></i> Search</button>
+      </div>
+
+      <div class="loader" id="loader">
+        <div class="spinner"></div>
+      </div>
+
+      <div class="gallery" id="image-gallery"></div>
+
+      <div class="buttons-container">
+        <button id="show-more-button" class="show-more-button">
+          Show More
+        </button>
+      </div>
+
+      <div class="favorites-section">
+        <h2>Favorites</h2>
+        <div class="favorites-gallery" id="favorites-gallery"></div>
+      </div>
+    </div>
+
+    <div id="image-modal" class="modal">
+      <span class="close-modal">&times;</span>
+      <div class="modal-content">
+        <img id="modal-img" src="" />
+        <div class="modal-details">
+          <h3 id="modal-title"></h3>
+          <p id="modal-author"></p>
+          <a
+            id="modal-download"
+            href="#"
+            target="_blank"
+            class="download-button"
+            >Download Full Size</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/imageSearch.js"></script>
+  </body>
+</html>
