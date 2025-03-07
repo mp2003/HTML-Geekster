@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeeksterPok - Pokémon Explorer</title>
+    <link
+      rel="stylesheet"
+      href="../css/pokemon.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <div class="logo">
+          <h1>GeeksterPok</h1>
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+            alt="Pokeball"
+          />
+        </div>
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search Pokémon..." />
+          <button id="searchBtn"><i class="fas fa-search"></i></button>
+        </div>
+      </header>
+
+      <div class="filter-section">
+        <div class="type-filter">
+          <select id="typeSelect">
+            <option value="" selected disabled>Select Type</option>
+            <!-- Types will be loaded dynamically -->
+          </select>
+          <button id="filterBtn">Filter by Type</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+        <div id="noResults" class="no-results hidden">
+          <p>No Pokémon found! Try a different search.</p>
+          <img
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/sad-egg.png"
+            alt="Sad Egg"
+          />
+        </div>
+      </div>
+
+      <div class="loading" id="loadingIndicator">
+        <div class="pokeball"></div>
+        <p>Catching Pokémon...</p>
+      </div>
+
+      <main id="pokemonGrid">
+        <!-- Pokémon cards will be loaded dynamically -->
+      </main>
+    </div>
+
+    <footer>
+      <p>Created with <i class="fas fa-heart"></i> for Pokémon Trainers</p>
+      <p>
+        Data provided by
+        <a href="https://pokeapi.co/" target="_blank">PokéAPI</a>
+      </p>
+    </footer>
+
+    <script src="../js/pokemon.js"></script>
+  </body>
+</html>
