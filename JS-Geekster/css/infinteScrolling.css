@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Boldonse";
+  src: url("/fonts/Boldonse.woff2") format("woff2"),
+       url("/fonts/Boldonse.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Apply the font globally */
+.font-boldonse {
+  font-family: "Boldonse", sans-serif;
+}
+
